@@ -1,29 +1,46 @@
 package com.qianfeng.pojo.po;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
-	private String name;
-	private Integer age;
+	private Integer sid;
+	private String sname;
+	private Integer sage;
 	
 	
 	public Student() {
 		super();
 	}
-	public Student(String name, Integer age) {
+	public Student(Integer sid, String sname, Integer sage) {
 		super();
-		this.name = name;
-		this.age = age;
+		this.sid = sid;
+		this.sname = sname;
+		this.sage = sage;
 	}
-	public String getName() {
-		return name;
+	public Integer getSid() {
+		return sid;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSid(Integer sid) {
+		this.sid = sid;
 	}
-	public Integer getAge() {
-		return age;
+	public String getSname() {
+		return sname;
 	}
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
+	public Integer getSage() {
+		return sage;
+	}
+	public void setSage(Integer sage) {
+		this.sage = sage;
+	}
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", sname=" + sname + ", sage=" + sage + "]";
+	}
+	
+	
 	
 }

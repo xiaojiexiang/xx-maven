@@ -1,22 +1,44 @@
 package com.qianfeng.service.impl;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.qianfeng.dao.impl.StudentDaoImpl;
 import com.qianfeng.pojo.po.Student;
+import com.qianfeng.service.IStudentService;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
 public class StudentServiceImplTest {
+	@Autowired
+	private IStudentService service;
+
 	
-	
+	public IStudentService getService() {
+		return service;
+	}
+
+
+	public void setService(IStudentService service) {
+		this.service = service;
+	}
+
+
 	@Test
 	public void test1(){
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-		StudentServiceImpl service = ac.getBean("stuService",StudentServiceImpl.class);
-		StudentDaoImpl sdao = ac.getBean("stuDao", StudentDaoImpl.class);
-		service.setSdao(sdao);
-		Student student = service.findStudentById(1);
-		System.out.println(student.getName()+","+student.getAge());
+		
+		List<Student> stuList = null;
+		try {
+			stuList = service.studentInfo();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(stuList);
 	}
 }
