@@ -12,7 +12,7 @@ public class StudentServiceImplTest {
 	
 	@Test
 	public void test1(){
-		ApplicationContext ac = new ClassPathXmlApplicationContext("sp/applicationContext.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		StudentServiceImpl service = ac.getBean("stuService",StudentServiceImpl.class);
 		StudentDaoImpl sdao = ac.getBean("stuDao", StudentDaoImpl.class);
 		service.setSdao(sdao);
