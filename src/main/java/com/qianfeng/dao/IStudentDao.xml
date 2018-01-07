@@ -6,9 +6,14 @@
 		resultType="com.qianfeng.pojo.po.Student">
 		SELECT * FROM student WHERE sid=#{sid}
 	</select>
-	<!-- <insert id="addUser" parameterType="com.springMyBatis.system.model.User" 
-		flushCache="true"> INSERT INTO user (id,username,password) VALUES (#{id},#{username},#{password}) 
-		</insert> <update id="updateUser" parameterType="com.springMyBatis.system.model.User"> 
-		UPDATE user SET password=#{password} WHERE id=#{id} </update> <delete id="deleteUser" 
-		parameterType="int"> DELETE FROM user WHERE id=#{id} </delete> -->
+	<!--配置一个resultMap 指定返回的类型 -->
+	<resultMap type="com.qianfeng.pojo.po.Student" id="student">
+		<id column="sid" property="sid" />
+		<result column="sname" property="sname" />
+		<result column="sage" property="sage" />
+	</resultMap>
+	<!-- 返回一个list的写法 -->
+	<select id="studentInfo" resultMap="student">
+		SELECT * FROM student
+	</select>
 </mapper>

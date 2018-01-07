@@ -32,14 +32,9 @@ public class StudentServiceImplTest {
 	@Test
 	public void test1(){
 		
-		List<Student> stuList = null;
-		try {
-			stuList = service.studentInfo();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(stuList);
+		List<Student> stuList = service.studentInfo();
+		
+		System.out.println(stuList.size());
 	}
 	
 	@Test

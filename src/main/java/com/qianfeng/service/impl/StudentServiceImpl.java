@@ -1,6 +1,5 @@
 package com.qianfeng.service.impl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +26,13 @@ public class StudentServiceImpl implements IStudentService {
 	
 
 	@Override
-	public Student findStudentById(Integer sid) {
-		return sdao.findStudentById(sid);
+	public Student findStudentById(Integer id) {
+		return sdao.findStudentById(id);
 	}
 
 	@Override
-	public List<Student> studentInfo() throws SQLException {
-		return null;
+	public List<Student> studentInfo() {
+		return sdao.studentInfo();
 		
 	}
 
