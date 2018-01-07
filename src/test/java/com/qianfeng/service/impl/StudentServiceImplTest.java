@@ -17,7 +17,7 @@ import com.qianfeng.service.IStudentService;
 public class StudentServiceImplTest {
 	@Autowired
 	private IStudentService service;
-
+	
 	
 	public IStudentService getService() {
 		return service;
@@ -40,5 +40,11 @@ public class StudentServiceImplTest {
 			e.printStackTrace();
 		}
 		System.out.println(stuList);
+	}
+	
+	@Test
+	public void findStudentById(){
+		Student student = service.findStudentById(1);
+		System.out.println(student);
 	}
 }

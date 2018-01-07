@@ -23,14 +23,17 @@ public class StudentServiceImpl implements IStudentService {
 		this.sdao = sdao;
 	}
 
+	
+	
+
 	@Override
-	public Student findStudentById(Integer id) {
-		return null;
+	public Student findStudentById(Integer sid) {
+		return sdao.findStudentById(sid);
 	}
 
 	@Override
 	public List<Student> studentInfo() throws SQLException {
-		return sdao.studentInfo();
+		return null;
 		
 	}
 
